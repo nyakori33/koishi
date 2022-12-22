@@ -45,13 +45,6 @@ func handler(html http.ResponseWriter, remote *http.Request) {
 		return
 	}
 
-	/*
-		if len(data) <= 0 {
-			request, error := http.NewRequest(remote.Method, uri, nil)
-		} else {
-			request, error := http.NewRequest(remote.Method, uri, bytes.NewBuffer(data))
-		}
-	*/
 	request, error := http.NewRequest(remote.Method, uri, bytes.NewBuffer(data))
 	if error != nil {
 		html.WriteHeader(http.StatusInternalServerError)
